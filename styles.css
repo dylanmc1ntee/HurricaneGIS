@@ -1,1 +1,25 @@
-gang shit
+body {
+    font-family: Arial, sans-serif; /* Set a default font */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+header {
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+    padding: 15px; /* Padding for header */
+    text-align: center; /* Center text */
+}
+
+main {
+    /* You can set a max-width or other properties for the main content */
+    max-width: 1200px;
+    margin: auto; /* Center the main content */
+    padding: 20px; /* Padding around the main content */
+}
+
+#map {
+    height: 400px; /* Set height of the map */
+    width: 100%;   /* Full width of the container */
+    border: 2px solid #4CAF50; /* Optional: border for the map */
+}
