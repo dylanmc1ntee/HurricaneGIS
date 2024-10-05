@@ -6,12 +6,15 @@
     <title>HurricaneGIS</title>
     <link rel="stylesheet" href="styles.css">
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB34k6aJQrnKCeRdYnSd8lvIX7zMNrbqnY&loading=async&libraries=places&callback=initMap"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB34k6aJQrnKCeRdYnSd8lvIX7zMNrbqnY&libraries=drawing&callback=initMap" async defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Hurricane Geographic Information System</h1>
         <p>Report flooding, debris, and other issues.</p>
+    <header id="headercontainer">
         <nav>
             <ul class="navbar">
                 <li>Hurricane GIS</li>
@@ -22,14 +25,15 @@
                         <button id="searchButton">Search</button>
                     </div>
                 </li>
-                <li>Info</li>
+                <li id="about-toggle">About</li>
             </ul>
         </nav>
-        <div id="info-panel">
+        <div id="about-panel">
             Report flooding, debris, and other issues.
         </div>
+        <div class="toggle-tab" id="toggleTab" onclick="">&#9650;</div>
     </header>
-
+    
     <main>
         <div id="map" style="height: 500px; width: 100%;"></div> <!-- The div element where the map will be rendered -->
 
@@ -38,19 +42,21 @@
                 <span class="close">&times;</span>
                 <h2>Report an Issue</h2>
                 <form id="pinForm">
-                    <label for="issueType">Issue Type:</label>
-                    <select id="issueType" required>
-                        <option value="">Select an issue type</option>
-                        <option value="Flood">Flood</option>
-                        <option value="Broken Powerline">Broken Powerline</option>
-                        <option value="Debris">Debris</option>
-                        <option value="Crashed Car">Crashed Car</option>
-                    </select>
+                    <div class="input-float">
+                        <label for="issueType">Issue Type</label>
+                        <select id="issueType" required>
+                            <option value="">Select an issue type</option>
+                            <option value="Flood">Flood</option>
+                            <option value="Broken Powerline">Broken Powerline</option>
+                            <option value="Debris">Debris</option>
+                            <option value="Crashed Car">Crashed Car</option>
+                        </select>
+                    </div>
                     <br>
-                    <label for="description">Description:</label>
+                    <label for="description">Description</label>
                     <textarea id="description" rows="4" required></textarea>
                     <br>
-                    <label for="imageUpload">Upload Picture:</label>
+                    <label for="imageUpload">Upload Picture</label>
                     <input type="file" id="imageUpload" accept="image/*">
                     <br>
                     <button type="submit">Submit</button>
