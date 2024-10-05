@@ -1,52 +1,82 @@
 let map;
+let clickLocation; // Store the clicked location for later use
+
 function initMap() {
-    // Initialize the map
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                // Get user's latitude and longitude
                 const userLocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
 
-                // Initialize the map centered around the user's location
                 map = new google.maps.Map(document.getElementById("map"), {
                     center: userLocation,
-                    zoom: 15, // Adjust zoom level as needed
+                    zoom: 12,
                 });
 
-                // Optionally, add a marker at the user's location
-                const userMarker = new google.maps.Marker({
+                // Add marker for user's location
+                new google.maps.Marker({
                     position: userLocation,
                     map: map,
-                    title: "You are here!", // Tooltip text
+                    title: "You are here!",
+                });
+
+                // Map click event listener
+                map.addListener("click", (e) => {
+                    clickLocation = e.latLng; // Store the clicked location
+                    openModal(); // Open the modal to collect info
                 });
             },
             () => {
-                // Handle location error
                 handleLocationError(true);
             }
         );
     } else {
-        // Browser doesn't support Geolocation
         handleLocationError(false);
     }
 }
 
-function handleLocationError(browserHasGeolocation) {
-    const errorMessage = browserHasGeolocation
-        ? "Error: The Geolocation service failed."
-        : "Error: Your browser doesn't support geolocation.";
-    alert(errorMessage);
+// Open the modal
+function openModal() {
+    document.getElementById("pinModal").style.display = "block";
 }
 
-    // Adding an event listener for map clicks
-    map.addListener("click", (e) => {
-        const clickedLocation = e.latLng; // Get the clicked location
-        const newMarker = new google.maps.Marker({
-            position: clickedLocation,
+// Close the modal
+document.querySelector(".close").onclick = function() {
+    document.getElementById("pinModal").style.display = "none";
+};
+
+// Handle form submission
+document.getElementById("pinForm").onsubmit = function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+
+    // Gather data from the form
+    const issueType = document.getElementById("issueType").value;
+    const description = document.getElementById("description").value;
+    const file = document.getElementById("imageUpload").files[0];
+
+    if (issueType && description) {
+        // Here you can process the form data (e.g., upload to Firebase)
+        console.log("Issue Type:", issueType);
+        console.log("Description:", description);
+        console.log("Location:", clickLocation);
+        if (file) {
+            console.log("Image:", file.name);
+            // You would handle the image upload as before
+        }
+
+        // Close the modal
+        document.getElementById("pinModal").style.display = "none";
+
+        // Add the marker to the map
+        const marker = new google.maps.Marker({
+            position: clickLocation,
             map: map,
-            title: "New Event",
+            title: description // Use the description as tooltip
         });
-    });
+
+        // Reset the form
+        document.getElementById("pinForm").reset();
+    }
+};
