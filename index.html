@@ -14,6 +14,12 @@
         <nav>
             <ul class="navbar">
                 <li>Hurricane GIS</li>
+                <li>
+                    <div class="search">
+                        <i class="fa fa-map-marker map-icon" style="font-size:24px"></i>
+                        <input type="text" id="location">
+                    </div>
+                </li>
                 <li id="about-toggle">About</li>
             </ul>
         </nav>
@@ -31,19 +37,21 @@
                 <span class="close">&times;</span>
                 <h2>Report an Issue</h2>
                 <form id="pinForm">
-                    <label for="issueType">Issue Type:</label>
-                    <select id="issueType" required>
-                        <option value="">Select an issue type</option>
-                        <option value="Flood">Flood</option>
-                        <option value="Broken Powerline">Broken Powerline</option>
-                        <option value="Debris">Debris</option>
-                        <option value="Crashed Car">Crashed Car</option>
+                    <div class="input-float">
+                        <label for="issueType">Issue Type</label>
+                        <select id="issueType" required>
+                            <option value="">Select an issue type</option>
+                            <option value="Flood">Flood</option>
+                            <option value="Broken Powerline">Broken Powerline</option>
+                            <option value="Debris">Debris</option>
+                            <option value="Crashed Car">Crashed Car</option>
                     </select>
+                    </div>
                     <br>
-                    <label for="description">Description:</label>
+                    <label for="description">Description</label>
                     <textarea id="description" rows="4" required></textarea>
                     <br>
-                    <label for="imageUpload">Upload Picture:</label>
+                    <label for="imageUpload">Upload Picture</label>
                     <input type="file" id="imageUpload" accept="image/*">
                     <br>
                     <button type="submit">Submit</button>

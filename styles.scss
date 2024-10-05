@@ -1,5 +1,8 @@
 $clr-background: rgba(0, 0, 0, 0.795);
 $clr-header-text: white;
+$header-height: 4.65em;
+
+$clr-modal-bg: white;
 
 * {
     box-sizing: border-box;
@@ -39,6 +42,25 @@ header {
             #about-toggle:hover {
                 cursor: pointer;
             }
+
+            li .search {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1em;
+
+                .map-icon {
+                    font-size: 24px;
+                }
+                
+                input {
+                    padding: 1em;
+                    border-radius: 1.5em;
+                    border: none;
+                }
+                
+
+            }
             
         }
     }
@@ -54,8 +76,8 @@ header {
     position: fixed;
     
     border-radius: 0px 0px 10px 10px;
-    top: 3.75em;
-    right: 50%;
+    top: $header-height;
+    right: calc(50% - 2em);
     padding: 0.5em 1em;
     background-color: $clr-background;
     z-index: 1;
@@ -78,6 +100,12 @@ main {
 #map {
     height: 100vh; 
     width: 100%;   
+
+
+
+    &:hover {
+        cursor: url('path-to-image.png'), auto;
+    }
 }
 
 /* Modal styles */
@@ -96,40 +124,111 @@ main {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: $clr-background;
+    color: $clr-header-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     margin: auto; /* Center the modal */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    padding: 2em;
+    border: 1px solid $clr-background;
+    border-radius: 3em;
+    max-width: 50%; /* Could be more or less, depending on screen size */
     position: relative; /* Ensure it stays within the bounds of the modal */
-    top: 50%;
+    top: calc(50% + 3em);
     transform: translateY(-50%); /* Center vertically */
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-around;
+        padding: 0px 1em;
+        width: 100%;
+        outline: none;
+
+        label {
+            margin-bottom: 0.3em;
+        }
+
+        textarea {
+            border-radius: 2em;
+            padding: 1.3em 2em;
+            width: 100%;
+            resize: none;
+            outline: none;
+
+        }
+
+        button[type="submit"] {
+            margin:auto;
+            outline: none;
+            width: 50%;
+            padding: 0.5em 1em;
+            font-size: 1.3em;
+            border-radius: 1.3em;
+            text-align: center;
+            background-color: transparent;
+            color: $clr-header-text;
+            border: 2px solid $clr-header-text;
+
+            &:hover {
+                background-color: $clr-header-text;
+                color: $clr-background;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        }
+
+        .input-float {
+            display: float;
+            align-items: start;
+            select {
+                width: max-content;
+                padding: 0.5em;
+                border-radius: 1em;
+    
+                option {
+                    padding: 0.25em;
+                }
+    
+            }
+        }
+        
+    }
+
+    .close {
+        color: #aaa;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+        font-size: 28px;
+        font-weight: bold;
+        transition: color 0.3s ease; /* Smooth color transition */
+        
+        &:hover,
+        &:focus {
+        color: #f00; /* Change color on hover for better visibility */
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    }
+    
+    
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    transition: color 0.3s ease; /* Smooth color transition */
-}
 
-.close:hover,
-.close:focus {
-    color: #f00; /* Change color on hover for better visibility */
-    text-decoration: none;
-    cursor: pointer;
-}
 
 /* Responsive styles */
 @media (max-width: 768px) {
-    #map {
-        height: 300px; /* Reduce height on smaller screens */
-    }
 
     .modal-content {
         width: 90%; /* Make modal a bit wider on small screens */
     }
 }
+
 
 /*# sourceMappingURL=styles.css.map */

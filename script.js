@@ -1,7 +1,7 @@
+
 let map;
 let clickLocation; // Store the clicked location for later use
 let autocomplete; // Variable for autocomplete
-
 
 function initMap() {
     if (navigator.geolocation) {
@@ -37,14 +37,12 @@ function initMap() {
                     } else {
                         alert("No details available for the input: '" + addressInput.value + "'");
                     }
-                });
+                
 
                 // Map click event listener
                 map.addListener("click", (e) => {
                     clickLocation = e.latLng; // Store the clicked location
                     openModal(); // Open the modal to collect info
-                    fetchWeatherForecast(clickLocation.lat(), clickLocation.lng()); // Fetch weather data
-                    fetchRadarData(clickLocation.lat(), clickLocation.lng()); // Fetch radar data
                 });
             },
             () => {
@@ -54,13 +52,8 @@ function initMap() {
     } else {
         handleLocationError(false);
     }
-
-    // Add event listener for address search button
-    document.getElementById("searchButton").addEventListener("click", () => {
-        const address = document.getElementById("addressInput").value;
-        geocodeAddress(address);
-    });
 }
+
 
 
 // Open the modal
@@ -72,6 +65,7 @@ function openModal() {
 document.querySelector(".close").onclick = function() {
     document.getElementById("pinModal").style.display = "none";
 };
+
 
 // Handle form submission
 document.getElementById("pinForm").onsubmit = function(event) {
@@ -127,7 +121,7 @@ document.getElementById('toggleTab').addEventListener('click', function() {
     // Check if the header is currently moved
     if (currentTransform === 'none' || currentTransform === 'matrix(1, 0, 0, 1, 0, 0)') {
         header.style.transition = 'transform 0.3s ease'; 
-        header.style.transform = 'translateY(-3.75em)'; 
+        header.style.transform = 'translateY(-4.65em)'; 
     } else {
         header.style.transition = 'transform 0.3s ease'; 
         header.style.transform = 'translateY(0)'; 
