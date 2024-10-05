@@ -1,25 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif; /* Set a default font */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background-color: #4CAF50; /* Header background color */
-    color: white; /* Header text color */
-    padding: 15px; /* Padding for header */
-    text-align: center; /* Center text */
+  background-color: rgba(0, 0, 0, 0.795);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 1em;
+  position: fixed;
+  z-index: 1;
+  margin: 0;
+}
+header nav {
+  width: 100%;
+}
+header nav .navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.5em;
+}
+header nav .navbar li {
+  margin-right: 1em;
+}
+header nav .navbar li .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+header nav .navbar li .search .map-icon {
+  font-size: 24px;
+}
+header nav .navbar li .search input {
+  padding: 1em;
+  border-radius: 1.5em;
+  border: none;
+}
+header #info-panel {
+  display: none;
 }
 
 main {
-    /* You can set a max-width or other properties for the main content */
-    max-width: 1200px;
-    margin: auto; /* Center the main content */
-    padding: 20px; /* Padding around the main content */
+  z-index: 0;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  top: 0;
 }
 
 #map {
-    height: 400px; /* Set height of the map */
-    width: 100%;   /* Full width of the container */
-    border: 2px solid #4CAF50; /* Optional: border for the map */
+  height: 100vh;
+  width: 100%;
 }
+
+/*# sourceMappingURL=styles.css.map */
