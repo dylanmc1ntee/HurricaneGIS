@@ -5,35 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HurricaneGIS</title>
     <link rel="stylesheet" href="styles.css">
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB34k6aJQrnKCeRdYnSd8lvIX7zMNrbqnY&loading=async&libraries=places&callback=initMap"> </script>
-
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB34k6aJQrnKCeRdYnSd8lvIX7zMNrbqnY&loading=async&libraries=places&callback=initMap"></script>
     <script src="script.js" defer></script>
-    
-
-</head>
-<header>
-    <h1>Hurricane Geographic Information System</h1>
-    <p>Report flooding, debris, and other issues.</p>
-</header>
-<main>
-    <div>
-        <input type="text" id="addressInput" placeholder="Enter an address" />
-        <button id="searchButton">Search</button>
-    </div>
-    
-    
-    <div id="map"></div> <!-- The div element where the map will be rendered -->
-
 </head>
 <body>
     <header>
+        <h1>Hurricane Geographic Information System</h1>
+        <p>Report flooding, debris, and other issues.</p>
         <nav>
             <ul class="navbar">
                 <li>Hurricane GIS</li>
                 <li>
                     <div class="search">
                         <i class="fa fa-map-marker map-icon" style="font-size:24px"></i>
-                        <input type="text" id="location">
+                        <input type="text" id="addressInput" placeholder="Enter an address" />
+                        <button id="searchButton">Search</button>
                     </div>
                 </li>
                 <li>Info</li>
@@ -43,9 +29,10 @@
             Report flooding, debris, and other issues.
         </div>
     </header>
+
     <main>
-        <div id="map"></div>
-    
+        <div id="map" style="height: 500px; width: 100%;"></div> <!-- The div element where the map will be rendered -->
+
         <div id="pinModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -71,6 +58,23 @@
             </div>
         </div>
 
+        <div>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <div>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
