@@ -35,12 +35,14 @@ header nav .navbar {
 }
 header nav .navbar #about-toggle:hover {
   cursor: pointer;
+  color: rgb(150, 150, 150);
 }
 header nav .navbar li .search {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1em;
+  max-width: 50em;
 }
 header nav .navbar li .search .map-icon {
   font-size: 24px;
@@ -49,6 +51,7 @@ header nav .navbar li .search input {
   padding: 1em;
   border-radius: 1.5em;
   border: none;
+  max-width: 50em;
 }
 header #about-panel {
   display: none;
@@ -81,7 +84,7 @@ main {
   width: 100%;
 }
 #map:hover {
-  cursor: url("path-to-image.png"), auto;
+  cursor: url("/images/pin.png"), auto;
 }
 
 /* Modal styles */
@@ -110,7 +113,7 @@ main {
   padding: 2em;
   border: 1px solid rgba(0, 0, 0, 0.795);
   border-radius: 3em;
-  max-width: 50%; /* Could be more or less, depending on screen size */
+  max-width: 30em;
   position: relative; /* Ensure it stays within the bounds of the modal */
   top: calc(50% + 3em);
   transform: translateY(-50%); /* Center vertically */
@@ -124,8 +127,11 @@ main {
   width: 100%;
   outline: none;
 }
-.modal-content form label {
+.modal-content form label, .modal-content form label.input-float {
   margin-bottom: 0.3em;
+  margin-right: 0.3em;
+  font-size: 1em;
+  font-weight: 700;
 }
 .modal-content form textarea {
   border-radius: 2em;
@@ -133,6 +139,8 @@ main {
   width: 100%;
   resize: none;
   outline: none;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .modal-content form button[type=submit] {
   margin: auto;
@@ -157,10 +165,10 @@ main {
   align-items: start;
 }
 .modal-content form .input-float select {
-  width: -moz-max-content;
-  width: max-content;
-  padding: 0.5em;
-  border-radius: 1em;
+  min-width: 15em;
+  max-width: 80%;
+  padding: 0.75em;
+  border-radius: 1.5em;
 }
 .modal-content form .input-float select option {
   padding: 0.25em;

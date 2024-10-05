@@ -1,5 +1,6 @@
 $clr-background: rgba(0, 0, 0, 0.795);
 $clr-header-text: white;
+$clr-text-hover: rgb(150, 150, 150);
 $header-height: 4.65em;
 
 $clr-modal-bg: white;
@@ -41,6 +42,7 @@ header {
 
             #about-toggle:hover {
                 cursor: pointer;
+                color: $clr-text-hover;
             }
 
             li .search {
@@ -48,6 +50,8 @@ header {
                 justify-content: center;
                 align-items: center;
                 gap: 1em;
+
+                max-width: 50em;
 
                 .map-icon {
                     font-size: 24px;
@@ -57,6 +61,7 @@ header {
                     padding: 1em;
                     border-radius: 1.5em;
                     border: none;
+                    max-width: 50em;
                 }
                 
 
@@ -95,17 +100,18 @@ main {
     width: 100%;
     position: relative;
     top: 0;
+
+
 }
 
 #map {
     height: 100vh; 
     width: 100%;   
 
-
-
     &:hover {
-        cursor: url('path-to-image.png'), auto;
+        cursor: url('/images/pin.png'), auto;
     }
+
 }
 
 /* Modal styles */
@@ -134,7 +140,7 @@ main {
     padding: 2em;
     border: 1px solid $clr-background;
     border-radius: 3em;
-    max-width: 50%; /* Could be more or less, depending on screen size */
+    max-width: 30em;
     position: relative; /* Ensure it stays within the bounds of the modal */
     top: calc(50% + 3em);
     transform: translateY(-50%); /* Center vertically */
@@ -148,8 +154,11 @@ main {
         width: 100%;
         outline: none;
 
-        label {
+        label, label.input-float {
             margin-bottom: 0.3em;
+            margin-right: 0.3em;
+            font-size: 1em;
+            font-weight: 700;
         }
 
         textarea {
@@ -158,6 +167,8 @@ main {
             width: 100%;
             resize: none;
             outline: none;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
 
         }
 
@@ -186,9 +197,10 @@ main {
             display: float;
             align-items: start;
             select {
-                width: max-content;
-                padding: 0.5em;
-                border-radius: 1em;
+                min-width: 15em;
+                max-width: 80%;
+                padding: 0.75em;
+                border-radius: 1.5em;
     
                 option {
                     padding: 0.25em;
