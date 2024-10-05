@@ -8,6 +8,7 @@
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB34k6aJQrnKCeRdYnSd8lvIX7zMNrbqnY&loading=async&libraries=places&callback=initMap"> </script>
 
     <script src="script.js" defer></script>
+    
 
 </head>
 <header>
@@ -23,29 +24,52 @@
     
     <div id="map"></div> <!-- The div element where the map will be rendered -->
 
-    <div id="pinModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Report an Issue</h2>
-            <form id="pinForm">
-                <label for="issueType">Issue Type:</label>
-                <select id="issueType" required>
-                    <option value="">Select an issue type</option>
-                    <option value="Flood">Flood</option>
-                    <option value="Broken Powerline">Broken Powerline</option>
-                    <option value="Debris">Debris</option>
-                    <option value="Crashed Car">Crashed Car</option>
-                </select>
-                <br>
-                <label for="description">Description:</label>
-                <textarea id="description" rows="4" required></textarea>
-                <br>
-                <label for="imageUpload">Upload Picture:</label>
-                <input type="file" id="imageUpload" accept="image/*">
-                <br>
-                <button type="submit">Submit</button>
-            </form>
+</head><body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li>Hurricane GIS</li>
+                <li>
+                    <div class="search">
+                        <i class="fa fa-map-marker map-icon" style="font-size:24px"></i>
+                        <input type="text" id="location">
+                    </div>
+                </li>
+                <li>Info</li>
+            </ul>
+        </nav>
+        <div id="info-panel">
+            Report flooding, debris, and other issues.
         </div>
-    </div>
-</main>
+    </header>
+    <main>
+        <div id="map"></div>
+    
+        <div id="pinModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Report an Issue</h2>
+                <form id="pinForm">
+                    <label for="issueType">Issue Type:</label>
+                    <select id="issueType" required>
+                        <option value="">Select an issue type</option>
+                        <option value="Flood">Flood</option>
+                        <option value="Broken Powerline">Broken Powerline</option>
+                        <option value="Debris">Debris</option>
+                        <option value="Crashed Car">Crashed Car</option>
+                    </select>
+                    <br>
+                    <label for="description">Description:</label>
+                    <textarea id="description" rows="4" required></textarea>
+                    <br>
+                    <label for="imageUpload">Upload Picture:</label>
+                    <input type="file" id="imageUpload" accept="image/*">
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</body>
 </html>
