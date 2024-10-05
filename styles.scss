@@ -18,7 +18,7 @@ header {
     align-items: center;
     justify-content: space-between;
     color: $clr-header-text; 
-    padding: 1em; 
+    padding: 1em 3em; 
     position: fixed;
     z-index: 1;
     margin: 0;
@@ -32,34 +32,37 @@ header {
             padding: 0;
             display: flex; 
             align-items: center;
-            justify-content: space-between; // Spread items across the row
+            justify-content: space-between; 
             width: 100%;
             font-size: 1.5em;
 
-            li {
-                margin-right: 1em; 
-                .search {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1em;
-
-                    .map-icon {
-                        font-size: 24px;
-                    }
-                    
-                    input {
-                        padding: 1em;
-                        border-radius: 1.5em;
-                        border: none;
-                    }
-                }
+            #about-toggle:hover {
+                cursor: pointer;
             }
+            
         }
     }
 
-    #info-panel {
+    #about-panel {
         display: none; // info panel is hidden by default
+    }
+
+}
+
+.toggle-tab {
+    display: block;
+    position: fixed;
+    
+    border-radius: 0px 0px 10px 10px;
+    top: 3.75em;
+    right: 50%;
+    padding: 0.5em 1em;
+    background-color: $clr-background;
+    z-index: 1;
+
+    &:hover {
+        cursor: pointer;
+
     }
 
 }

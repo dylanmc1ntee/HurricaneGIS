@@ -5,44 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HurricaneGIS</title>
     <link rel="stylesheet" href="styles.css">
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB34k6aJQrnKCeRdYnSd8lvIX7zMNrbqnY&loading=async&libraries=places&callback=initMap"> </script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB34k6aJQrnKCeRdYnSd8lvIX7zMNrbqnY&libraries=drawing&callback=initMap" async defer></script>
     <script src="script.js" defer></script>
-    
-
-</head>
-<header>
-    <h1>Hurricane Geographic Information System</h1>
-    <p>Report flooding, debris, and other issues.</p>
-</header>
-<main>
-    <div>
-        <input type="text" id="addressInput" placeholder="Enter an address" />
-        <button id="searchButton">Search</button>
-    </div>
-    
-    
-    <div id="map"></div> <!-- The div element where the map will be rendered -->
-
 </head>
 <body>
-    <header>
+    <header id="headercontainer">
         <nav>
             <ul class="navbar">
                 <li>Hurricane GIS</li>
-                <li>
-                    <div class="search">
-                        <i class="fa fa-map-marker map-icon" style="font-size:24px"></i>
-                        <input type="text" id="location">
-                    </div>
-                </li>
-                <li>Info</li>
+                <li id="about-toggle">About</li>
             </ul>
         </nav>
-        <div id="info-panel">
+        <div id="about-panel">
             Report flooding, debris, and other issues.
         </div>
+        <div class="toggle-tab" id="toggleTab" onclick="">&#9650;</div>
     </header>
+    
     <main>
         <div id="map"></div>
     

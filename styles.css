@@ -15,7 +15,7 @@ header {
   align-items: center;
   justify-content: space-between;
   color: white;
-  padding: 1em;
+  padding: 1em 3em;
   position: fixed;
   z-index: 1;
   margin: 0;
@@ -33,25 +33,25 @@ header nav .navbar {
   width: 100%;
   font-size: 1.5em;
 }
-header nav .navbar li {
-  margin-right: 1em;
+header nav .navbar #about-toggle:hover {
+  cursor: pointer;
 }
-header nav .navbar li .search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-}
-header nav .navbar li .search .map-icon {
-  font-size: 24px;
-}
-header nav .navbar li .search input {
-  padding: 1em;
-  border-radius: 1.5em;
-  border: none;
-}
-header #info-panel {
+header #about-panel {
   display: none;
+}
+
+.toggle-tab {
+  display: block;
+  position: fixed;
+  border-radius: 0px 0px 10px 10px;
+  top: 3.75em;
+  right: 50%;
+  padding: 0.5em 1em;
+  background-color: rgba(0, 0, 0, 0.795);
+  z-index: 1;
+}
+.toggle-tab:hover {
+  cursor: pointer;
 }
 
 main {
