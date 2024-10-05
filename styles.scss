@@ -1,0 +1,246 @@
+$clr-background:rgba(0, 0, 0, 0.795);
+$clr-header-text: white;
+$clr-text-hover: rgb(150, 150, 150);
+$header-height: 4.65em;
+
+$clr-modal-bg: white;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+}
+
+header {
+    background-color: $clr-background; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $clr-header-text; 
+    padding: 1em 3em; 
+    position: fixed;
+    z-index: 1;
+    margin: 0;
+
+    nav {
+        width: 100%;
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; 
+            align-items: center;
+            justify-content: space-between; 
+            width: 100%;
+            font-size: 1.5em;
+
+            #about-toggle:hover {
+                cursor: pointer;
+                color: $clr-text-hover;
+            }
+
+            li .search {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1em;
+
+                max-width: 50em;
+
+                .map-icon {
+                    font-size: 24px;
+                }
+                
+                input {
+                    padding: 1em;
+                    border-radius: 1.5em;
+                    border: none;
+                    max-width: 50em;
+                }
+                
+
+            }
+            
+        }
+    }
+
+    #about-panel {
+        display: none; // info panel is hidden by default
+    }
+
+}
+
+.toggle-tab {
+    display: block;
+    position: fixed;
+    
+    border-radius: 0px 0px 10px 10px;
+    top: $header-height;
+    right: calc(50% - 2em);
+    padding: 0.5em 1em;
+    background-color: $clr-background;
+    z-index: 1;
+
+    &:hover {
+        cursor: pointer;
+
+    }
+
+}
+
+main {
+    z-index: 0;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    top: 0;
+
+
+}
+
+#map {
+    height: 100vh; 
+    width: 100%;   
+
+    &:hover {
+        cursor: url('/images/pin.png'), auto;
+    }
+
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    transition: opacity 0.3s ease; /* Smooth transition for modal */
+}
+
+.modal-content {
+    background-color: $clr-background;
+    color: $clr-header-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto; /* Center the modal */
+    padding: 2em;
+    border: 1px solid $clr-background;
+    border-radius: 3em;
+    max-width: 30em;
+    position: relative; /* Ensure it stays within the bounds of the modal */
+    top: calc(50% + 3em);
+    transform: translateY(-50%); /* Center vertically */
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-around;
+        padding: 0px 1em;
+        width: 100%;
+        outline: none;
+
+        label, label.input-float {
+            margin-bottom: 0.3em;
+            margin-right: 0.3em;
+            font-size: 1em;
+            font-weight: 700;
+        }
+
+        textarea {
+            border-radius: 2em;
+            padding: 1.3em 2em;
+            width: 100%;
+            resize: none;
+            outline: none;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        button[type="submit"] {
+            margin:auto;
+            outline: none;
+            width: 50%;
+            padding: 0.5em 1em;
+            font-size: 1.3em;
+            border-radius: 1.3em;
+            text-align: center;
+            background-color: transparent;
+            color: $clr-header-text;
+            border: 2px solid $clr-header-text;
+
+            &:hover {
+                background-color: $clr-header-text;
+                color: $clr-background;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        }
+
+        .input-float {
+            display: float;
+            align-items: start;
+            select {
+                min-width: 15em;
+                max-width: 80%;
+                padding: 0.75em;
+                border-radius: 1.5em;
+    
+                option {
+                    padding: 0.25em;
+                }
+    
+            }
+        }
+        
+    }
+
+    .close {
+        color: #aaa;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+        font-size: 28px;
+        font-weight: bold;
+        transition: color 0.3s ease; /* Smooth color transition */
+        
+        &:hover,
+        &:focus {
+        color: #f00; /* Change color on hover for better visibility */
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    }
+    
+    
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+    .modal-content {
+        width: 90%; /* Make modal a bit wider on small screens */
+    }
+}
+
+
+/*# sourceMappingURL=styles.css.map */
