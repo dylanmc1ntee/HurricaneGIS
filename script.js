@@ -220,20 +220,3 @@ function handleLocationError(browserHasGeolocation) {
 
 // Make sure to define window.initMap to link to the Google Maps API
 window.initMap = initMap;
-
-// Toggle header
-document.getElementById('toggleTab').addEventListener('click', function() {
-    const header = document.getElementById('headercontainer');
-    
-    // Get current transform value
-    const currentTransform = getComputedStyle(header).transform;
-
-    // Check if the header is currently moved
-    if (currentTransform === 'none' || currentTransform === 'matrix(1, 0, 0, 1, 0, 0)') {
-        header.style.transition = 'transform 0.3s ease'; 
-        header.style.transform = 'translateY(-4.65em)'; 
-    } else {
-        header.style.transition = 'transform 0.3s ease'; 
-        header.style.transform = 'translateY(0)'; 
-    }
-});
